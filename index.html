@@ -200,7 +200,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;json&quot;]">
+  <body class="index" data-languages="[&quot;example&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,7 +210,8 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="example">example</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -228,20 +229,156 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>단지 테스트<br>
-오웬 테스트
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
 
 <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
 <p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
 
-<h1 id="part-1115c2498fb445b8">가맹점 상품 관리</h1>
+<h1 id="authentication">Authentication</h1>
 
-<h2 id="part-44cb768ad40439cc">가맹점 리스트</h2>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api.8days.com/v1/api/admin/brand/list?page={page}&amp;limit{limit}"</span>
-</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+</blockquote>
+
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+
+<aside class="notice">
+You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+
+          <h1 id="part-61973ac57c52921a">가맹점 정보 / 상품 관리</h1>
+
+<h2 id="1">1. 가맹점 리스트</h2>
+
+<h3 id="method">Method</h3>
+
+<ul>
+<li><strong>GET</strong></li>
+</ul>
+
+<h3 id="url-schema">URL Schema</h3>
+
+<ul>
+<li><code class="prettyprint">/api/admin/brand/list?page={page}&amp;limit={limit}</code></li>
+</ul>
+
+<h3 id="request-query-param">Request Query Param</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th>Value</th>
+<th>Description</th>
+<th style="text-align: center">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">page</code></td>
+<td>0</td>
+<td>요청 페이지</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td>20</td>
+<td>페이지당 개수</td>
+<td style="text-align: center">int</td>
+</tr>
+</tbody></table>
+
+<h3 id="reponse">Reponse</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th>Value</th>
+<th>Description</th>
+<th style="text-align: center">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">title</td>
+<td></td>
+<td>가맹점명</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left">is_open</td>
+<td></td>
+<td>노출상태</td>
+<td style="text-align: center">bool</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td></td>
+<td>유형</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left">category_option</td>
+<td></td>
+<td>유형2</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left">sido</td>
+<td></td>
+<td>시도</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left">gungu</td>
+<td></td>
+<td>군구</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left">owner_name</td>
+<td></td>
+<td>사업자명</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left">total_goods</td>
+<td></td>
+<td>상품수</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left">shop_no</td>
+<td></td>
+<td>가맹점 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-example">Response Example</h3>
+
+<blockquote>
+<p>/api/admin/brand/list?page={page}&amp;limit={limit}</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -277,68 +414,7 @@ curl <span class="s2">"api.8days.com/v1/api/admin/brand/list?page={page}&amp;lim
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://api.the8days.com/api/admin/brand/list?page={page}&amp;limit={limit}</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td>0</td>
-<td>int, 요청 페이지</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>20</td>
-<td>int, 페이지당 개수</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h1 id="authentication">Authentication</h1>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-          <h1 id="part-61973ac57c52921a">가맹점 정보 / 상품 관리</h1>
+<hr>
 
           <h1 id="errors">Errors</h1>
 
@@ -401,7 +477,8 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="example">example</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
