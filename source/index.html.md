@@ -19,4 +19,4 @@ search: true
 # Introduction
 Welcome to the 8DAYS API! You can use our API to access 8DAYS API endpoints, which can get information.
 
-This API documentation page was created with [8DAYS](https://8days.github.io/slate).
+This API documentation page was created with [8DAYS](https://www.the8days.com/).
