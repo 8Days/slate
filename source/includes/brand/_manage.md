@@ -2,15 +2,9 @@
 
 ## 1. 가맹점 리스트
 
-Method
-- **GET**
-
-URL Schema
-- `/api/admin/brand/list?page={page}&limit={limit}`
-
 > **/api/admin/brand/list?page={page}&limit={limit}**
 
-``` json
+```json
 {
   "error": null,
   "result": {
@@ -48,6 +42,12 @@ URL Schema
 }
 ```
 
+#### Method
+- **GET**
+
+#### URL Schema
+- `/api/admin/brand/list?page={page}&limit={limit}`
+
 Request Query Param
 
 | Name | Value | Description | Type |
@@ -55,7 +55,7 @@ Request Query Param
 | `page` | 0 | 요청 페이지 | int |
 | limit | 20 | 페이지당 개수 | int |
 
-Response
+#### Response
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
