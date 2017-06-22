@@ -15,7 +15,7 @@
 | `page` | 0 | 요청 페이지 | int |
 | limit | 20 | 페이지당 개수 | int |
 
-### Reponse
+### Response
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
@@ -28,8 +28,6 @@
 | owner_name |  | 사업자명 | string |
 | total_goods |  | 상품수 | int |
 | shop_no |  | 가맹점 번호 | int |
-
-### Response Example
 
 > /api/admin/brand/list?page={page}&limit={limit}
 
