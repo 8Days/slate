@@ -864,7 +864,7 @@
 <tr>
 <td style="text-align: left"><code class="prettyprint">images</code></td>
 <td></td>
-<td>가맹점 이미지업</td>
+<td>가맹점 이미지</td>
 <td style="text-align: center">object</td>
 </tr>
 <tr>
@@ -900,7 +900,7 @@
 <tr>
 <td style="text-align: left"><code class="prettyprint">images</code></td>
 <td></td>
-<td>가맹점 이미지업</td>
+<td>가맹점 이미지</td>
 <td style="text-align: center">object</td>
 </tr>
 <tr>
@@ -923,10 +923,10 @@
 </tr>
 </tbody></table>
 
-<h2 id="part-4840c5f5b92b7fcd">분류 관리</h2>
+<h2 id="part-96dbe9a2f61890ef">상품 분류 리스트</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/{shop_no}/image</strong></p>
+<p><strong>/api/admin/goods/category/{shop_no}/list</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -939,6 +939,54 @@
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h3 id="method">Method</h3>
+
+<ul>
+<li><strong>GET</strong></li>
+</ul>
+
+<h3 id="url-schema">URL Schema</h3>
+
+<ul>
+<li><code class="prettyprint">/api/admin/goods/category/{shop_no}/list</code></li>
+</ul>
+
+<h3 id="request-url-param">Request url Param</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th>Value</th>
+<th>Description</th>
+<th style="text-align: center">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">shop_no</code></td>
+<td>0</td>
+<td>가맹점 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th>Value</th>
+<th>Description</th>
+<th style="text-align: center">Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">categories</code></td>
+<td></td>
+<td>상품 분류</td>
+<td style="text-align: center">object</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&lsquo;s frontmatter. Files are included in the order listed.</aside>
