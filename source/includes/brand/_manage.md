@@ -2,20 +2,20 @@
 
 ## 1. 가맹점 리스트
 
-### Method
+Method
 - **GET**
 
-### URL Schema
+URL Schema
 - `/api/admin/brand/list?page={page}&limit={limit}`
 
-### Request Query Param
+Request Query Param
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `page` | 0 | 요청 페이지 | int |
 | limit | 20 | 페이지당 개수 | int |
 
-### Response
+Response
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
@@ -29,7 +29,7 @@
 | total_goods |  | 상품수 | int |
 | shop_no |  | 가맹점 번호 | int |
 
-> /api/admin/brand/list?page={page}&limit={limit}
+> **/api/admin/brand/list?page={page}&limit={limit}**
 
 ``` json
 {
@@ -68,4 +68,4 @@
   "success": true
 }
 ```
-_ _ _
+---
