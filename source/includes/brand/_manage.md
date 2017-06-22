@@ -300,7 +300,7 @@
 ### Request body
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
-| `images` |  | 가맹점 이미지업 | object |
+| `images` |  | 가맹점 이미지 | object |
 | `image` |  | 이미지 파일 | file |
 | `image_url` |  | 이미지 주소 | string |
 | `image_idx` |  | 이미지 인덱스 | int |
@@ -308,16 +308,16 @@
 ### Response
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
-| `images` |  | 가맹점 이미지업 | object |
+| `images` |  | 가맹점 이미지 | object |
 | `image_no` |  | 이미지 번호 | int |
 | `image_url` |  | 이미지 주소 | string |
 | `image_idx` |  | 이미지 인덱스 | int |
 
 
 
-## 분류 관리
+## 상품 분류 리스트
 
-> **/api/admin/goods/{shop_no}/image**
+> **/api/admin/goods/category/{shop_no}/list**
 
 ```json
 {
@@ -331,3 +331,21 @@
   "success": true
 }
 ```
+
+### Method
+- **GET**
+
+### URL Schema
+- `/api/admin/goods/category/{shop_no}/list`
+
+### Request url Param
+
+| Name | Value | Description | Type |
+| :--- | ----- | ----------- | :--: |
+| `shop_no` | 0 | 가맹점 번호 | int |
+
+### Response
+
+| Name | Value | Description | Type |
+| :--- | ----- | ----------- | :--: |
+| `categories` |  | 상품 분류 | object |
