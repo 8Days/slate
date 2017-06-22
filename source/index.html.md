@@ -9,7 +9,7 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - brandManage
+  - brand_manage
   - errors
 
 search: true
