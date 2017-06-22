@@ -68,4 +68,3 @@ Response
   "success": true
 }
 ```
----
