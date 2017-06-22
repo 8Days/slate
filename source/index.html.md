@@ -2,7 +2,8 @@
 title: API Reference
 
 language_tabs:
-  - json
+  - example
+  - shell
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -16,78 +17,11 @@ search: true
 ---
 
 # Introduction
-
-단지 테스트  
-오웬 테스트
 Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# 가맹점 상품 관리
-
-## 가맹점 리스트
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api.8days.com/v1/api/admin/brand/list?page={page}&limit{limit}"
-```
-
-```json
-{
-  "error": null,
-  "result": {
-    "data": {
-      "brands": [
-        {
-          "no": 1,
-          "email": "test_account@test.com",
-          "owner_name": "사업자명",
-          "title": "베드렌",
-          "charge": "5",
-          "settle_date": "30",
-          "state": true,
-          "contract_date": "2017.05.15",
-          "reg_date": "2017.05.16",
-        }, {
-          "no": 2,
-          "email": "동인동",
-          "owner_name": "사업자명",
-          "title": "",
-          "charge": "3",
-          "settle_date": "30",
-          "state": true,
-          "contract_date": "2017.05.26",
-          "reg_date": "2017.05.27",
-        },
-      ],
-      "total": 12,
-      "page": 0,
-      "limit": 20,
-    }
-  },
-  "timestamp": 1478598656,
-  "success": true
-}
-```
-
-### HTTP Request
-
-`GET http://api.the8days.com/api/admin/brand/list?page={page}&limit={limit}`
-
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-page | 0 | int, 요청 페이지
-limit | 20 | int, 페이지당 개수
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
 
 # Authentication
 
