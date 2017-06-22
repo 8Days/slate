@@ -68,4 +68,3 @@ Request Query Param
 | owner_name |  | 사업자명 | string |
 | total_goods |  | 상품수 | int |
 | shop_no |  | 가맹점 번호 | int |
-
