@@ -8,27 +8,6 @@ Method
 URL Schema
 - `/api/admin/brand/list?page={page}&limit={limit}`
 
-Request Query Param
-
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `page` | 0 | 요청 페이지 | int |
-| limit | 20 | 페이지당 개수 | int |
-
-Response
-
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| title |  | 가맹점명 | string |
-| is_open |  | 노출상태 | bool |
-| category |  | 유형 | int |
-| category_option |  | 유형2 | int |
-| sido |  | 시도 | string |
-| gungu |  | 군구 | string |
-| owner_name |  | 사업자명 | string |
-| total_goods |  | 상품수 | int |
-| shop_no |  | 가맹점 번호 | int |
-
 > **/api/admin/brand/list?page={page}&limit={limit}**
 
 ``` json
@@ -68,3 +47,25 @@ Response
   "success": true
 }
 ```
+
+Request Query Param
+
+| Name | Value | Description | Type |
+| :--- | ----- | ----------- | :--: |
+| `page` | 0 | 요청 페이지 | int |
+| limit | 20 | 페이지당 개수 | int |
+
+Response
+
+| Name | Value | Description | Type |
+| :--- | ----- | ----------- | :--: |
+| title |  | 가맹점명 | string |
+| is_open |  | 노출상태 | bool |
+| category |  | 유형 | int |
+| category_option |  | 유형2 | int |
+| sido |  | 시도 | string |
+| gungu |  | 군구 | string |
+| owner_name |  | 사업자명 | string |
+| total_goods |  | 상품수 | int |
+| shop_no |  | 가맹점 번호 | int |
+
