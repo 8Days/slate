@@ -988,60 +988,360 @@
 </tbody></table>
 
           <h1 id="errors">Errors</h1>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"error_msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"인증오류입니다."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"인증오류입니다."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1476260663</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1476260663</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<aside class="notice">
+    API response Error에서 error_code관련하여  클라이언와 메세지 규칙을 정의함.
+</aside>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&lsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h2 id="error-parameter">Error Parameter</h2>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th style="text-align: left">Name</th>
+<th style="text-align: center">Type</th>
+<th>Description</th>
+<th style="text-align: center">Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td style="text-align: left"><code class="prettyprint">error_code</code></td>
+<td style="text-align: center">int</td>
+<td>클라이언트에서 에러관련 처리에 사용되는 필드</td>
+<td style="text-align: center">3001</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td style="text-align: left"><code class="prettyprint">error_msg</code></td>
+<td style="text-align: center">string</td>
+<td>에러관련해서 클라이언트에서 메세지를 보여주는 메세지</td>
+<td style="text-align: center">이전 비밀번호가 맞지 않습니다.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td style="text-align: left"><code class="prettyprint">message</code></td>
+<td style="text-align: center">string</td>
+<td>에러가 난경우 실질적인 에러메세지</td>
+<td style="text-align: center">비밀번호 요청시 제대로 입력되지 않은값&hellip;.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td style="text-align: left"><code class="prettyprint">status_code</code></td>
+<td style="text-align: center">int</td>
+<td>에러 http 상태코드</td>
+<td style="text-align: center">400 - 잘못된 요청</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td style="text-align: left"><code class="prettyprint">created_at</code></td>
+<td style="text-align: center">date</td>
+<td>에러 발생날짜</td>
+<td style="text-align: center">323232322</td>
+</tr>
+</tbody></table>
+
+<h2 id="error-code">Error Code</h2>
+
+<p><strong>1. 요청 데이터 Invalidate ( 3000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">3000</td>
+<td>파라미터 오류</td>
+<td>요청한 파라미터가 제대로 입력되지 않은경우</td>
+<td style="text-align: center">400</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<td style="text-align: center">3001</td>
+<td>이전 비밀번호가 맞지 않습니다.</td>
+<td>앱에서 요청한 비밀번호가 서버에 저장된 값과 매칭되지 않을때</td>
+<td style="text-align: center">400</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td style="text-align: center">3002</td>
+<td>비밀번호 변경 실패 동일한 비밀번호 수정</td>
+<td>비밀번호 변경시 동일한 비밀번호로 변경요청시 나는 에러</td>
+<td style="text-align: center">400</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td style="text-align: center">3003</td>
+<td>요청한 이메일 Validation오류입니다.</td>
+<td>요청한 이메일 Validation오류입니다.</td>
+<td style="text-align: center">400</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td style="text-align: center">3004</td>
+<td>알수없는 이메일사용자입니다.</td>
+<td>비밀번호 이메일로 요청시 사용자정보에 없는경우 에러메세지</td>
+<td style="text-align: center">400</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td style="text-align: center">3005</td>
+<td>방문매장만 가능합니다.</td>
+<td>댓글 작성시 에러</td>
+<td style="text-align: center">400</td>
+</tr>
+</tbody></table>
+
+<p><strong>2. 인증 에러 ( 4000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">4000</td>
+<td>인증오류입니다.</td>
+<td>auth token없이 요청할때 나오는 에러</td>
+<td style="text-align: center">401</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+<td style="text-align: center">4001</td>
+<td>요청한 비밀번호가 맞지 않습니다.</td>
+<td>인증요청시 비밀번호가 맞지 않은경우</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">4002</td>
+<td>토큰 만료</td>
+<td>인증토큰만료</td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: center">4003</td>
+<td>토큰 에러</td>
+<td>발급한 토큰 오류 또는 알수없는 토큰값을 전송한 경우</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">4004</td>
+<td>제한된 토큰권한을 요청하였습니다. 가맹점 인증토큰이 필요합니다.</td>
+<td>가맹점 로그인을 할경우 나는 에러</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">4005</td>
+<td>오래된 토큰값입니다. 재로그인해주세요.</td>
+<td>다른 디바이스에서 로그인했을경우, 또는 토큰이 변경된 경우</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">4006</td>
+<td>8DAYS 서비스 이용이 불가능합니다. 인사팀으로 문의하세요.</td>
+<td>임직원 상태값이 퇴사인경우</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">4008</td>
+<td>인증하지 않은 휴대폰에서 로그인하셨습니다. 다시 한번 본인 인증을 해주세요.</td>
+<td>기존 회원이 단말기를 바꿔서 재인증을 해야할 경우.</td>
+<td style="text-align: center">401</td>
+</tr>
+</tbody></table>
+
+<p><strong>3. 서버 &amp; DB 에러 ( 5000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">5000</td>
+<td>DB요청중 알수없는 오류가 발생하였습니다.</td>
+<td>DB쿼리중 여러원인으로 인하여 발생한 오류.</td>
+<td style="text-align: center">500</td>
+</tr>
+<tr>
+<td style="text-align: center">5001</td>
+<td>존재하지 않는 사용자입니다.</td>
+<td>인증요청시 사용자 정보가 없는경우의 오류</td>
+<td style="text-align: center">500</td>
+</tr>
+<tr>
+<td style="text-align: center">5002</td>
+<td>요청중 서버에서 알수없는 오류가 발생했습니다.</td>
+<td>서버에서 알수없는 오류(좀더 포괄적인 범위에서 내려줌)</td>
+<td style="text-align: center">500</td>
+</tr>
+</tbody></table>
+
+<p><strong>4. 주문 관련 에러 ( 6000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">6000</td>
+<td>일치한 주문내역이 없습니다.</td>
+<td>주문번호가 없는경우, 파라미터 누락</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">6001</td>
+<td>요청한 주문번호와 유저정보가 맞지않습니다.</td>
+<td>주문번호와 유저정보 매칭이 안되는경우, 오류</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">6002</td>
+<td>이미 결제취소한 주문건입니다.</td>
+<td>이미 취소한 주문건을 재요청한 경우</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">6003</td>
+<td>결제대기 주문건입니다.</td>
+<td>결제가 대기중인경우</td>
+<td style="text-align: center"></td>
+</tr>
+<tr>
+<td style="text-align: center">6004</td>
+<td>알수없는 상태의 주문건입니다.</td>
+<td>알수없는 주문요청서인경우</td>
+<td style="text-align: center">400</td>
+</tr>
+</tbody></table>
+
+<p><strong>5. 상품 관련 에러 ( 7000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">7000</td>
+<td>알수없는 메뉴를 선택하였습니다.</td>
+<td>요청한 메뉴의 No값이 DB에 없을경우, 에러코드</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">7001</td>
+<td>결제금액이 요청한 메뉴의 가격과 맞지 않습니다.</td>
+<td>결제시 요청한 메뉴의 가격과 지불금액이 맞지 않을경우 발생한 에러코드</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">7002</td>
+<td>인증번호가 맞지 않습니다.</td>
+<td>Shop의 인증번호와 앱에서 요청한 인증번호가 맞지 않을경우 발생한 에러코드</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">7003</td>
+<td>매장정보를 찾을수 없습니다.</td>
+<td>매장정보를 찾을수 없습니다.</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">7004</td>
+<td>매장에서 존재하지않는 메뉴입니다.</td>
+<td>매장에서 존재하지않는 메뉴입니다.</td>
+<td style="text-align: center">400</td>
+</tr>
+</tbody></table>
+
+<p><strong>6. 결제 관련 에러 ( 8000 ~ )</strong></p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Error Code</th>
+<th>Message</th>
+<th>Description</th>
+<th style="text-align: center">Status Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">8000</td>
+<td>잔액이 부족합니다.</td>
+<td>포인트, Pay모두 합해서 지불금액을 초과할경우 발생하는, 에러코드</td>
+<td style="text-align: center">416</td>
+</tr>
+<tr>
+<td style="text-align: center">8001</td>
+<td>결제 한도 초과</td>
+<td>요청한 결제금액이 결제한도를 초과한경우,</td>
+<td style="text-align: center">416</td>
+</tr>
+<tr>
+<td style="text-align: center">8002</td>
+<td>기간내 복지 포인트가 없습니다.</td>
+<td>복지포인트를 사용할경우, 기간내 복지포인트값이 결제금액보다 적거나 없는경우..</td>
+<td style="text-align: center">416</td>
+</tr>
+<tr>
+<td style="text-align: center">8003</td>
+<td>주문정보가 관리매장 주문번호와 일치하지 않습니다.</td>
+<td>주문취소시 해당 주문번호와 jwt토큰사용자의 매장정보와 비교했을때 맞지 않는경우..</td>
+<td style="text-align: center">416</td>
+</tr>
+<tr>
+<td style="text-align: center">8004</td>
+<td>회사에서 서비스를 정지하였습니다. 결제요청에 제한이 있습니다. 회사에 문의바랍니다.</td>
+<td>회사 서비스 상태값이 운영이 아닙니다.</td>
+<td style="text-align: center">401</td>
+</tr>
+<tr>
+<td style="text-align: center">8005</td>
+<td>인증번호가 누락됐습니다</td>
+<td>결제시 인증번호가 없는경우 id_number값 체크</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">8006</td>
+<td>지불금액과 포인터 금액이 0입니다.</td>
+<td>지불금액 또는 포인트금액이 0입니다.</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">8007</td>
+<td>알수없는 주문타입 입니다. order_type값을 다시 확인해주세요.</td>
+<td>order_type 값이 1 또는 2만 가능합니다.</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">8008</td>
+<td>invoice 정보 누락</td>
+<td>결제시 invoice_number값이 없을경우</td>
+<td style="text-align: center">400</td>
+</tr>
+<tr>
+<td style="text-align: center">8009</td>
+<td>알수없는 invoice number 정보를 요청하였습니다.</td>
+<td>결제시 invoice_number 값을 요청하였지만, 오래되서 정보가 없는경우 제 invoice_number 요청을 해야함. invoice_number재 요청은 api id_number_confirm을 재요청한다.</td>
+<td style="text-align: center">400</td>
 </tr>
 </tbody></table>
 
