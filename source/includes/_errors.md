@@ -1,20 +1,99 @@
 # Errors
+```json
+{
+    "error": {
+        "error_code": 4000,
+        "error_msg": "인증오류입니다.",
+        "message": "인증오류입니다.",
+        "status_code": 401,
+        "created_at": 1476260663
+    },
+    "result": {
+        "data": null
+    },
+    "timestamp": 1476260663,
+    "success": false
+}
+```
+<aside class="notice">
+	API response Error에서 error_code관련하여  클라이언와 메세지 규칙을 정의함.
+</aside>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+## Error Parameter
 
-The Kittn API uses the following error codes:
+| Name | Type | Description | Example |
+| :--- | :--: | ----------- | :-----: |
+| `error_code` | int | 클라이언트에서 에러관련 처리에 사용되는 필드 | 3001 |
+| `error_msg` | string | 에러관련해서 클라이언트에서 메세지를 보여주는 메세지 | 이전 비밀번호가 맞지 않습니다. |
+| `message` | string | 에러가 난경우 실질적인 에러메세지 | 비밀번호 요청시 제대로 입력되지 않은값.... |
+| `status_code` | int | 에러 http 상태코드 | 400 - 잘못된 요청 |
+| `created_at` | date | 에러 발생날짜 | 323232322 |
 
+## Error Code
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+**1. 요청 데이터 Invalidate ( 3000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 3000 | 파라미터 오류 | 요청한 파라미터가 제대로 입력되지 않은경우 | 400 |
+| 3001 | 이전 비밀번호가 맞지 않습니다. | 앱에서 요청한 비밀번호가 서버에 저장된 값과 매칭되지 않을때 | 400 |
+| 3002 | 비밀번호 변경 실패 동일한 비밀번호 수정 | 비밀번호 변경시 동일한 비밀번호로 변경요청시 나는 에러 | 400 |
+| 3003 | 요청한 이메일 Validation오류입니다. | 요청한 이메일 Validation오류입니다. | 400 |
+| 3004 | 알수없는 이메일사용자입니다. | 비밀번호 이메일로 요청시 사용자정보에 없는경우 에러메세지 | 400 |
+| 3005 | 방문매장만 가능합니다. | 댓글 작성시 에러 | 400 |
+
+**2. 인증 에러 ( 4000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 4000 | 인증오류입니다. | auth token없이 요청할때 나오는 에러 | 401 |
+| 4001 | 요청한 비밀번호가 맞지 않습니다. | 인증요청시 비밀번호가 맞지 않은경우 | 401 |
+| 4002 | 토큰 만료 | 인증토큰만료 |  |
+| 4003 | 토큰 에러 | 발급한 토큰 오류 또는 알수없는 토큰값을 전송한 경우 | 401 |
+| 4004 | 제한된 토큰권한을 요청하였습니다. 가맹점 인증토큰이 필요합니다. | 가맹점 로그인을 할경우 나는 에러 | 401 |
+| 4005 | 오래된 토큰값입니다. 재로그인해주세요. | 다른 디바이스에서 로그인했을경우, 또는 토큰이 변경된 경우 | 401 |
+| 4006 | 8DAYS 서비스 이용이 불가능합니다. 인사팀으로 문의하세요. | 임직원 상태값이 퇴사인경우 | 401 |
+| 4008 | 인증하지 않은 휴대폰에서 로그인하셨습니다. 다시 한번 본인 인증을 해주세요. | 기존 회원이 단말기를 바꿔서 재인증을 해야할 경우. | 401 |
+
+**3. 서버 & DB 에러 ( 5000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 5000 | DB요청중 알수없는 오류가 발생하였습니다. | DB쿼리중 여러원인으로 인하여 발생한 오류. | 500 |
+| 5001 | 존재하지 않는 사용자입니다. | 인증요청시 사용자 정보가 없는경우의 오류 | 500 |
+| 5002 | 요청중 서버에서 알수없는 오류가 발생했습니다. | 서버에서 알수없는 오류(좀더 포괄적인 범위에서 내려줌) | 500 |
+
+**4. 주문 관련 에러 ( 6000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 6000 | 일치한 주문내역이 없습니다. | 주문번호가 없는경우, 파라미터 누락 | 400 |
+| 6001 | 요청한 주문번호와 유저정보가 맞지않습니다. | 주문번호와 유저정보 매칭이 안되는경우, 오류 | 400 |
+| 6002 | 이미 결제취소한 주문건입니다. | 이미 취소한 주문건을 재요청한 경우 | 400 |
+| 6003 | 결제대기 주문건입니다. | 결제가 대기중인경우 |  |
+| 6004 | 알수없는 상태의 주문건입니다.  | 알수없는 주문요청서인경우 | 400 |
+
+**5. 상품 관련 에러 ( 7000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 7000 | 알수없는 메뉴를 선택하였습니다. | 요청한 메뉴의 No값이 DB에 없을경우, 에러코드 | 400 |
+| 7001 | 결제금액이 요청한 메뉴의 가격과 맞지 않습니다. | 결제시 요청한 메뉴의 가격과 지불금액이 맞지 않을경우 발생한 에러코드 | 400 |
+| 7002 | 인증번호가 맞지 않습니다. | Shop의 인증번호와 앱에서 요청한 인증번호가 맞지 않을경우 발생한 에러코드 | 400 |
+| 7003 | 매장정보를 찾을수 없습니다. | 매장정보를 찾을수 없습니다. | 400 |
+| 7004 | 매장에서 존재하지않는 메뉴입니다.	 | 매장에서 존재하지않는 메뉴입니다. | 400 |
+
+**6. 결제 관련 에러 ( 8000 ~ )**
+
+| Error Code | Message | Description | Status Code |
+| :--------: | ------- | ----------- | :---------: |
+| 8000 | 잔액이 부족합니다. | 포인트, Pay모두 합해서 지불금액을 초과할경우 발생하는, 에러코드 | 416 |
+| 8001 | 결제 한도 초과 | 요청한 결제금액이 결제한도를 초과한경우, | 416 |
+| 8002 | 기간내 복지 포인트가 없습니다. | 복지포인트를 사용할경우, 기간내 복지포인트값이 결제금액보다 적거나 없는경우.. | 416 |
+| 8003 | 주문정보가 관리매장 주문번호와 일치하지 않습니다. | 주문취소시 해당 주문번호와 jwt토큰사용자의 매장정보와 비교했을때 맞지 않는경우.. | 416 |
+| 8004 | 회사에서 서비스를 정지하였습니다. 결제요청에 제한이 있습니다. 회사에 문의바랍니다. | 회사 서비스 상태값이 운영이 아닙니다. | 401 |
+| 8005 | 인증번호가 누락됐습니다 | 결제시 인증번호가 없는경우 id_number값 체크 | 400 |
+| 8006 | 지불금액과 포인터 금액이 0입니다. | 지불금액 또는 포인트금액이 0입니다. | 400 |
+| 8007 | 알수없는 주문타입 입니다. order_type값을 다시 확인해주세요. | order_type 값이 1 또는 2만 가능합니다. | 400 |
+| 8008 | invoice 정보 누락 | 결제시 invoice_number값이 없을경우 | 400 |
+| 8009 | 알수없는 invoice number 정보를 요청하였습니다. | 결제시 invoice_number 값을 요청하였지만, 오래되서 정보가 없는경우 제 invoice_number 요청을 해야함. invoice_number재 요청은 api id_number_confirm을 재요청한다. | 400 |
