@@ -19,7 +19,7 @@
 	API response Error에서 error_code관련하여  클라이언와 메세지 규칙을 정의함.
 </aside>
 
-## Error Parameter
+### Error Parameter
 
 | Name | Type | Description | Example |
 | :--- | :--: | ----------- | :-----: |
@@ -29,7 +29,7 @@
 | `status_code` | int | 에러 http 상태코드 | 400 - 잘못된 요청 |
 | `created_at` | date | 에러 발생날짜 | 323232322 |
 
-## Error Code
+### Error Code
 
 **1. 요청 데이터 Invalidate ( 3000 ~ )**
 
