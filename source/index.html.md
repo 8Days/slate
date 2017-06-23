@@ -1,12 +1,10 @@
 ---
-title: API Reference
+title: 8DAYS API Reference
 
 language_tabs:
   - example
-  - shell
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://8days.github.io/slate'>Documentation Powered by 8DAYS</a>
 
 includes:
