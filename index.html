@@ -921,16 +921,35 @@
 </tr>
 </tbody></table>
 
-<h2 id="part-96dbe9a2f61890ef">상품 분류 리스트</h2>
+<h2 id="part-a1ee78e531bb4d02">상품 리스트</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/category/{shop_no}/list</strong></p>
+<p><strong>/api/admin/goods/{shop_no}/list</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
+      </span><span class="s2">"goods_category"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"titls"</span><span class="p">:</span><span class="w"> </span><span class="s2">"음료"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"category_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"goods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"goods_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"콜라"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"recommendation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"음료"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"discount_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"discount_mount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"benefit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2850</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1478598656</span><span class="p">,</span><span class="w">
@@ -946,7 +965,7 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/category/{shop_no}/list</code></li>
+<li><code class="prettyprint">/api/admin/goods/category/{shop_no}/list?category_no={category_no}</code></li>
 </ul>
 
 <h3 id="request-url-param">Request url Param</h3>
@@ -972,16 +991,94 @@
 <table><thead>
 <tr>
 <th style="text-align: left">Name</th>
-<th>Value</th>
+<th>key</th>
 <th>Description</th>
 <th style="text-align: center">Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code class="prettyprint">categories</code></td>
+<td style="text-align: left"><code class="prettyprint">goods_category</code></td>
 <td></td>
 <td>상품 분류</td>
 <td style="text-align: center">object</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">index</code></td>
+<td>상품 분류 인덱스</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">title</code></td>
+<td>상품 분류 이름</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">category_no</code></td>
+<td>상품 분류 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">goods</code></td>
+<td></td>
+<td>상품 목록</td>
+<td style="text-align: center">object</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">index</code></td>
+<td>상품 인덱스</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">goods_no</code></td>
+<td>상품 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">title</code></td>
+<td>상품명</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">recommendation</code></td>
+<td>추천상품</td>
+<td style="text-align: center">bool</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">category</code></td>
+<td>분류</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">price</code></td>
+<td>정상가</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">discount_rate</code></td>
+<td>할인율</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">discount_mount</code></td>
+<td>할인액</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">benefit_price</code></td>
+<td>할인가</td>
+<td style="text-align: center">int</td>
 </tr>
 </tbody></table>
 
