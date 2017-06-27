@@ -315,16 +315,35 @@
 
 
 
-## 상품 분류 리스트
+## 상품 리스트
 
-> **/api/admin/goods/category/{shop_no}/list**
+> **/api/admin/goods/{shop_no}/list**
 
 ```json
 {
   "error": null,
   "result": {
     "data": {
-
+      "goods_category": [
+        {
+          "index": 1,
+          "titls": "음료",
+          "category_no": 1
+        }
+      ],
+      "goods": [
+        {
+          "index": 1,
+          "goods_no": 1,
+          "title": "콜라",
+          "recommendation": true,
+          "category": "음료",
+          "price": 3000,
+          "discount_rate": 5,
+          "discount_mount": 150,
+          "benefit_price": 2850
+        }
+      ]
     }
   },
   "timestamp": 1478598656,
@@ -336,7 +355,7 @@
 - **GET**
 
 ### URL Schema
-- `/api/admin/goods/category/{shop_no}/list`
+- `/api/admin/goods/category/{shop_no}/list?category_no={category_no}`
 
 ### Request url Param
 
@@ -346,6 +365,19 @@
 
 ### Response
 
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `categories` |  | 상품 분류 | object |
+| Name | key | Description | Type |
+| :--- | --- | ----------- | :--: |
+| `goods_category` |  | 상품 분류 | object |
+|  | `index` | 상품 분류 인덱스 | int |
+|  | `title` | 상품 분류 이름 | string |
+|  | `category_no` | 상품 분류 번호  | int |
+| `goods` |  | 상품 목록 | object |
+|  | `index` | 상품 인덱스 | int |
+|  | `goods_no` | 상품 번호 | int |
+|  | `title` | 상품명 | string |
+|  | `recommendation` | 추천상품 | bool |
+|  | `category` | 분류 | string |
+|  | `price` | 정상가 | int |
+|  | `discount_rate` | 할인율 | int |
+|  | `discount_mount` | 할인액 | int |
+|  | `benefit_price` | 할인가 | int |
