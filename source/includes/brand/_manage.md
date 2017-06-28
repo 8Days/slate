@@ -86,7 +86,10 @@
       "is_goods_info": true,
       "category": 1,
       "category_option": 2,
-      "shop_no": 25
+      "shop_no": 25,
+      "title": "베드렌",
+      "owner_name": "김대표",
+      "licence_number": "123-43-12345",
     }
   },
   "timestamp": 1478598656,
@@ -115,6 +118,9 @@
 | `category` |  | 가맹점 유형 | int |
 | `category_option` |  | 가맹점 유형 2 | int |
 | `is_goods_info` |  | 가맹점 정보 입력 여부 | bool |
+| `title` |  | 가맹점명 | string |
+| `owner_name` |  | 사업자명 | string |
+| `licence_number` |  | 사업자번호 | string |
 
 
 
