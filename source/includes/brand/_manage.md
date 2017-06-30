@@ -14,25 +14,41 @@
       "brands": [
         {
           "no": 1,
-          "is_open": true,
-          "owner_name": "김사업",
+          "email": "test_account@test.com",
+          "owner_name": "사업자명",
           "title": "베드렌",
-          "category": 1,
-          "category_option": 5,
-          "sido": "서울",
-          "gungu": "강남구",
-          "total_goods": "40",
-        },
-        {
-          "no": 1,
+          "charge": "5",
+          "settle_date": "30",
+          "state": true,
+          "contract_date": "2017.05.15",
+          "reg_date": "2017.05.16",
           "is_open": false,
-          "owner_name": "박친구",
-          "title": "친구분식",
-          "category": 1,
-          "category_option": 1,
           "sido": "서울",
           "gungu": "강남구",
           "total_goods": "25",
+          "brand_category": {
+            "no": 1,
+            "option": 1
+          }
+        },
+        {
+          "no": 2,
+          "email": "test_account@test.com",
+          "owner_name": "사업자명",
+          "title": "베드렌",
+          "charge": "5",
+          "settle_date": "30",
+          "state": true,
+          "contract_date": "2017.05.15",
+          "reg_date": "2017.05.16",
+          "is_open": false,
+          "sido": "서울",
+          "gungu": "강남구",
+          "total_goods": "40",
+          "brand_category": {
+            "no": 1,
+            "option": 1
+          }
         },
       ],
       "total": 12,
@@ -60,12 +76,16 @@
 
 ### Response
 
-| Name | Value | Description | Type |
+| Name | Value or key | Description | Type |
 | :--- | ----- | ----------- | :--: |
-| `title` |  | 가맹점명 | string |
+| `email` |  | 계정 | string |
+| `charge` |  | 가맹점명 | string |
+| `settle_date` |  | 정산일 | string |
+| `state` |  | 계약완료 여부 | string |
 | `is_open` |  | 노출상태 | bool |
-| `category` |  | 가맹점 유형1 | int |
-| `category_option` |  | 가맹점 유형2 | int |
+| `brand_category` |  | 가맹점 유형 | object |
+|  | `no` | 가맹점 카테고리 번호 | int |
+|  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `sido` |  | 시도 | string |
 | `gungu` |  | 군구 | string |
 | `owner_name` |  | 사업자명 | string |
@@ -76,7 +96,7 @@
 
 ## 매장 정보 확인
 
-> **/api/admin/goods/{shop_no}/info/check**
+> **/api/admin/goods/info/check?shop_no={shop_no}**
 
 ```json
 {
@@ -84,8 +104,10 @@
   "result": {
     "data": {
       "is_goods_info": true,
-      "category": 1,
-      "category_option": 2,
+      "brand_category": {
+        "no": 1,
+        "option": 1
+      },
       "shop_no": 25,
       "title": "베드렌",
       "owner_name": "김대표",
@@ -115,8 +137,9 @@
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `shop_no` |  | 가맹점 번호 | int |
-| `category` |  | 가맹점 유형 | int |
-| `category_option` |  | 가맹점 유형 2 | int |
+| `brand_category` |  | 가맹점 유형 | object |
+|  | `no` | 가맹점 카테고리 번호 | int |
+|  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `is_goods_info` |  | 가맹점 정보 입력 여부 | bool |
 | `title` |  | 가맹점명 | string |
 | `owner_name` |  | 사업자명 | string |
@@ -134,8 +157,10 @@
   "result": {
     "data": {
       "is_goods_info": true,
-      "category": 1,
-      "category_option": 2,
+      "brand_category": {
+        "no": 1,
+        "option": 1
+      },
       "shop_no": 25
     }
   },
@@ -161,8 +186,9 @@
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `title` |  | 가맹점명 | string |
-| `category` |  | 가맹점 유형 1 | int |
-| `category_option` |  | 가맹점 유형 2 | int |
+| `brand_category` |  | 가맹점 유형 | object |
+|  | `no` | 가맹점 카테고리 번호 | int |
+|  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `is_open` |  | 영업상태 | bool |
 | `sido` |  | 시도 | string |
 | `gugun` |  | 구군 | string |
@@ -177,8 +203,9 @@
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `is_goods_info` |  | 가맹점 정보 입력 여부 | bool |
-| `category` |  | 가맹점 유형 1 | int |
-| `category_option` |  | 가맹점 유형 2 | int |
+| `brand_category` |  | 가맹점 유형 | object |
+|  | `no` | 가맹점 카테고리 번호 | int |
+|  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `shop_no` |  | 가맹점 번호 | int |
 
 
