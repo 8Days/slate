@@ -96,7 +96,7 @@
 | `total_goods` |  | 상품수 | int |
 | `shop_no` |  | 가맹점 번호 | int |
 
-## 가맹점 정보 등록
+## 가맹점 계정 정보 등록
 
 > **/api/admin/brand/account
 
@@ -168,9 +168,11 @@
 | Object Name or key | Value or key | Description | Type |
 | :----------------- | ------------ | ----------- | :--: |
 | `title` |  | 가맹점명 | string |
-| `licence_number` |  | 가맹점 유형 1 | int |
-| `licence_img` |  | 가맹점 유형 2 | int |
-| `type` |  | 영업상태 | bool |
+| `licence_number` |  | 사업자 등록 번호 | int |
+| `licence_img` |  | 사업자 등록증 이미지 | object |
+|  | `file` | 사업자 등록증 이미지 파일 | file |
+|  | `url` | 사업자 등록증 이미지 url | sting |
+| `type` |  | 업종/업태 | bool |
 | `brand_category` |  | 가맹점 유형 | object |
 |  | `no` | 가맹점 카테고리 번호 | int |
 |  | `option` | 가맹점 카테고리 옵션 번호 | int |
@@ -207,7 +209,7 @@
 - `/api/admin/brand/info/contract_no={contract_no}`
 
 
-### Request url Param
+### Request Query Param
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `contract_no` |  | 계약 번호 | int |
@@ -224,11 +226,15 @@
 | `bank_title` |  | 명의자명 | string |
 | `bank_account` |  | 계좌번호 | string |
 | `bank_img` |  | 통장사본 | object |
+|  | `file` | 사업자 등록증 이미지 파일 | file |
+|  | `url` | 사업자 등록증 이미지 url | sting |
 | `manager_no` |  | 담당자 | string |
 | `contractor_no` |  | 계약자 | string |
 | `charge` |  | 수수료 | int |
 | `discount` |  | 상품 할인율 | int |
-| `contract_file` |  | 계약서 | int |
+| `contract_file` |  | 계약서 | string |
+|  | `file` | 사업자 등록증 이미지 파일 | file |
+|  | `url` | 사업자 등록증 이미지 url | sting |
 
 ### Response
 | Object Name | Value or key | Description | Type |
