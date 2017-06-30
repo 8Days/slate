@@ -8,6 +8,7 @@ toc_footers:
   - <a href='https://8days.github.io/slate'>Documentation Powered by 8DAYS</a>
 
 includes:
+  - brand/register
   - brand/manage
   - errors
 
