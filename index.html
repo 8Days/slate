@@ -421,7 +421,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="part-25d9b69b1de4e631">가맹점 정보 등록</h2>
+<h2 id="part-1d51fef07f6eab93">가맹점 계정 정보 등록</h2>
 
 <blockquote>
 <p>**/api/admin/brand/account</p>
@@ -569,19 +569,31 @@
 <tr>
 <td style="text-align: left"><code class="prettyprint">licence_number</code></td>
 <td></td>
-<td>가맹점 유형 1</td>
+<td>사업자 등록 번호</td>
 <td style="text-align: center">int</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">licence_img</code></td>
 <td></td>
-<td>가맹점 유형 2</td>
-<td style="text-align: center">int</td>
+<td>사업자 등록증 이미지</td>
+<td style="text-align: center">object</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">file</code></td>
+<td>사업자 등록증 이미지 파일</td>
+<td style="text-align: center">file</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">url</code></td>
+<td>사업자 등록증 이미지 url</td>
+<td style="text-align: center">sting</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">type</code></td>
 <td></td>
-<td>영업상태</td>
+<td>업종/업태</td>
 <td style="text-align: center">bool</td>
 </tr>
 <tr>
@@ -650,7 +662,7 @@
 <li><code class="prettyprint">/api/admin/brand/info/contract_no={contract_no}</code></li>
 </ul>
 
-<h3 id="request-url-param">Request url Param</h3>
+<h3 id="request-query-param">Request Query Param</h3>
 
 <table><thead>
 <tr>
@@ -727,6 +739,18 @@
 <td style="text-align: center">object</td>
 </tr>
 <tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">file</code></td>
+<td>사업자 등록증 이미지 파일</td>
+<td style="text-align: center">file</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">url</code></td>
+<td>사업자 등록증 이미지 url</td>
+<td style="text-align: center">sting</td>
+</tr>
+<tr>
 <td style="text-align: left"><code class="prettyprint">manager_no</code></td>
 <td></td>
 <td>담당자</td>
@@ -754,7 +778,19 @@
 <td style="text-align: left"><code class="prettyprint">contract_file</code></td>
 <td></td>
 <td>계약서</td>
-<td style="text-align: center">int</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">file</code></td>
+<td>사업자 등록증 이미지 파일</td>
+<td style="text-align: center">file</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">url</code></td>
+<td>사업자 등록증 이미지 url</td>
+<td style="text-align: center">sting</td>
 </tr>
 </tbody></table>
 
