@@ -126,9 +126,9 @@
 - **GET**
 
 ### URL Schema
-- `/api/admin/goods/{shop_no}/info/check`
+- `/api/admin/goods/info/check/shop_no={shop_no}`
 
-### Request url Param
+### Request Query Param
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `shop_no` |  | 가맹점 번호 | int |
@@ -149,7 +149,7 @@
 
 ## 매장 정보 등록
 
-> **/api/admin/goods/{shop_no}/info**
+> **/api/admin/goods/info**
 
 ```json
 {
@@ -157,10 +157,6 @@
   "result": {
     "data": {
       "is_goods_info": true,
-      "brand_category": {
-        "no": 1,
-        "option": 1
-      },
       "shop_no": 25
     }
   },
@@ -173,18 +169,13 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/goods/{shop_no}/info`
-
-### Request url Param
-
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `shop_no` |  | 가맹점 번호 | int |
+- `/api/admin/goods/info`
 
 ### Request body
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
+| `shop_no` |  | 가맹점 번호 | int |
 | `title` |  | 가맹점명 | string |
 | `brand_category` |  | 가맹점 유형 | object |
 |  | `no` | 가맹점 카테고리 번호 | int |
@@ -203,16 +194,13 @@
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `is_goods_info` |  | 가맹점 정보 입력 여부 | bool |
-| `brand_category` |  | 가맹점 유형 | object |
-|  | `no` | 가맹점 카테고리 번호 | int |
-|  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `shop_no` |  | 가맹점 번호 | int |
 
 
 
 ## 매장 부가 정보 등록
 
-> **/api/admin/goods/{shop_no}/additional**
+> **/api/admin/goods/additional**
 
 ```json
 {
@@ -268,16 +256,13 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/goods/{shop_no}/additional`
+- `/api/admin/goods/additional`
 
-### Request url Param
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `shop_no` |  | 가맹점 번호 | int |
 
 ### Request body
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
+| `shop_no` |  | 가맹점 번호 | int |
 | `companies` |  | 노출 기업 | object |
 | `run_time` |  | 영업시간 | object |
 | `day_off` |  | 휴무일 정보 | string |
@@ -287,17 +272,12 @@
 ### Response
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
-| `companies` |  | 노출 기업 | object |
-| `run_time` |  | 영업시간 | object |
-| `day_off` |  | 휴무일 정보 | string |
-| `options` |  | 부가 정보 | object |
-| `info` |  | 한줄 소개 | string |
-
+| `shop_no` |  | 가맹점 번호 | int |
 
 
 ## 가맹점 이미지 등록
 
-> **/api/admin/goods/{shop_no}/image**
+> **/api/admin/goods/image**
 
 ```json
 {
@@ -324,16 +304,12 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/goods/{shop_no}/image`
-
-### Request url Param
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `shop_no` |  | 가맹점 번호 | int |
+- `/api/admin/goods/image`
 
 ### Request body
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
+| `shop_no` |  | 가맹점 번호 | int |
 | `images` |  | 가맹점 이미지 | object |
 | `image` |  | 이미지 파일 | file |
 | `image_url` |  | 이미지 주소 | string |
@@ -351,7 +327,7 @@
 
 ## 상품 리스트
 
-> **/api/admin/goods/{shop_no}/list**
+> **/api/admin/goods/list/shop_no={shop_no}**
 
 ```json
 {
@@ -389,14 +365,13 @@
 - **GET**
 
 ### URL Schema
-- `/api/admin/goods/category/{shop_no}/list?category_no={category_no}`
+- `/api/admin/goods/list/shop_no={shop_no}`
 
 ### Request url Param
 
 | Name | Value | Description | Type |
 | :--- | ----- | ----------- | :--: |
 | `shop_no` | 0 | 가맹점 번호 | int |
-
 ### Response
 
 | Name | key | Description | Type |

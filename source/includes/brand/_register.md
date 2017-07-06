@@ -1,6 +1,6 @@
 # 가맹점 등록 / 관리
 
-## 가맹점 등록 diagram
+## 가맹점 등록 DIAGRAM
 ![brandRegist]
 (https://8days.github.io/slate/images/brand/brand_regist.png)
 
@@ -87,7 +87,7 @@
 | `email` |  | 계정 | string |
 | `charge` |  | 가맹점명 | string |
 | `settle_date` |  | 정산일 | string |
-| `state` |  | 계약완료 여부 | string |
+| `state` |  | 계약완료 여부 | int |
 | `is_open` |  | 노출상태 | bool |
 | `brand_category` |  | 가맹점 유형 | object |
 |  | `no` | 가맹점 카테고리 번호 | int |
@@ -140,7 +140,7 @@
 
 ## 가맹점 정보 등록
 
-> **/api/admin/brand/info/contract_no={contract_no}
+> **/api/admin/brand/info
 
 ```json
 {
@@ -159,13 +159,7 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/brand/info/contract_no={contract_no}`
-
-
-### Request url Param
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `contract_no` |  | 계약 번호 | int |
+- `/api/admin/brand/info`
 
 ### Request body
 
@@ -176,6 +170,7 @@
 |  | `no` | 가맹점 카테고리 번호 | int |
 |  | `option` | 가맹점 카테고리 옵션 번호 | int |
 | `brand_type` |  |  | int |
+| `contract_no` |  | 계약 번호 | int |
 
 ### Response
 | Object Name or key | Value or key | Description | Type |
@@ -187,7 +182,7 @@
 
 ## 계약 정보 등록
 
-> **/api/admin/brand/contract/contract_no={contract_no}
+> **/api/admin/brand/contract
 
 ```json
 {
@@ -206,13 +201,7 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/brand/contract/contract_no={contract_no}`
-
-
-### Request Query Param
-| Name | Value | Description | Type |
-| :--- | ----- | ----------- | :--: |
-| `contract_no` |  | 계약 번호 | int |
+- `/api/admin/brand/contract`
 
 ### Request body
 
@@ -223,7 +212,7 @@
 |  | `file` | 사업자 등록증 이미지 파일 | string |
 |  | `url` | 사업자 등록증 이미지 url | sting |
 | `type` |  | 업종/업태 | string |
-| `state` |  | 계약 상태 | bool |
+| `state` |  | 계약 상태 | int |
 | `contract_start` |  | 계약 시작일 | string |
 | `contract_end` |  | 계약 종료일 | string |
 | `settle_date` |  | 정산일 | string |
@@ -240,6 +229,7 @@
 | `contract_file` |  | 계약서 | string |
 |  | `file` | 사업자 등록증 이미지 파일 | string |
 |  | `url` | 사업자 등록증 이미지 url | sting |
+| `contract_no` |  | 계약 번호 | int |
 
 ### Response
 | Object Name | Value or key | Description | Type |
