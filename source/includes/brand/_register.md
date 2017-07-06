@@ -1,6 +1,8 @@
 # 가맹점 등록 / 관리
 
-
+## 가맹점 등록 diagram
+![brandRegist]
+(https://8days.github.io/slate/images/brand/brand_regist.png)
 
 ## 가맹점 리스트
 
@@ -95,6 +97,8 @@
 | `owner_name` |  | 사업자명 | string |
 | `total_goods` |  | 상품수 | int |
 | `shop_no` |  | 가맹점 번호 | int |
+| `total` |  | 리스트 수 | int |
+| `page` |  | 검색한 페이지 | int |
 
 ## 가맹점 계정 정보 등록
 

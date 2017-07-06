@@ -10,7 +10,6 @@ toc_footers:
 includes:
   - brand/register
   - brand/manage
-  - brand/diagram
   - errors
 
 search: true
