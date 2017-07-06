@@ -172,14 +172,10 @@
 | Object Name or key | Value or key | Description | Type |
 | :----------------- | ------------ | ----------- | :--: |
 | `title` |  | 가맹점명 | string |
-| `licence_number` |  | 사업자 등록 번호 | int |
-| `licence_img` |  | 사업자 등록증 이미지 | object |
-|  | `file` | 사업자 등록증 이미지 파일 | file |
-|  | `url` | 사업자 등록증 이미지 url | sting |
-| `type` |  | 업종/업태 | string |
 | `brand_category` |  | 가맹점 유형 | object |
 |  | `no` | 가맹점 카테고리 번호 | int |
 |  | `option` | 가맹점 카테고리 옵션 번호 | int |
+| `brand_type` |  |  | int |
 
 ### Response
 | Object Name or key | Value or key | Description | Type |
@@ -210,7 +206,7 @@
 - **POST**
 
 ### URL Schema
-- `/api/admin/brand/info/contract_no={contract_no}`
+- `/api/admin/brand/contract/contract_no={contract_no}`
 
 
 ### Request Query Param
@@ -222,6 +218,11 @@
 
 | Object name | Value or key | Description | Type |
 | :----------------- | ------------ | ----------- | :--: |
+| `licence_number` |  | 사업자 등록 번호 | int |
+| `licence_img` |  | 사업자 등록증 이미지 | object |
+|  | `file` | 사업자 등록증 이미지 파일 | string |
+|  | `url` | 사업자 등록증 이미지 url | sting |
+| `type` |  | 업종/업태 | string |
 | `state` |  | 계약 상태 | bool |
 | `contract_start` |  | 계약 시작일 | string |
 | `contract_end` |  | 계약 종료일 | string |
@@ -230,14 +231,14 @@
 | `bank_title` |  | 명의자명 | string |
 | `bank_account` |  | 계좌번호 | string |
 | `bank_img` |  | 통장사본 | object |
-|  | `file` | 사업자 등록증 이미지 파일 | file |
+|  | `file` | 사업자 등록증 이미지 파일 | string |
 |  | `url` | 사업자 등록증 이미지 url | sting |
-| `manager_no` |  | 담당자 | string |
-| `contractor_no` |  | 계약자 | string |
+| `manager_no` |  | 담당자 | int |
+| `contractor_no` |  | 계약자 | int |
 | `charge` |  | 수수료 | int |
 | `discount` |  | 상품 할인율 | int |
 | `contract_file` |  | 계약서 | string |
-|  | `file` | 사업자 등록증 이미지 파일 | file |
+|  | `file` | 사업자 등록증 이미지 파일 | string |
 |  | `url` | 사업자 등록증 이미지 url | sting |
 
 ### Response
