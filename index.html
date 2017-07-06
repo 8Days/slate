@@ -233,6 +233,10 @@
 
           <h1 id="part-4a468586e25a8ea8">가맹점 등록 / 관리</h1>
 
+<h2 id="diagram">가맹점 등록 diagram</h2>
+
+<p><img src="https://8days.github.io/slate/images/brand/brand_regist.png" alt="brandRegist" /></p>
+
 <h2 id="part-44cb768ad40439cc">가맹점 리스트</h2>
 
 <blockquote>
@@ -419,6 +423,18 @@
 <td>가맹점 번호</td>
 <td style="text-align: center">int</td>
 </tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">total</code></td>
+<td></td>
+<td>리스트 수</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">page</code></td>
+<td></td>
+<td>검색한 페이지</td>
+<td style="text-align: center">int</td>
+</tr>
 </tbody></table>
 
 <h2 id="part-1d51fef07f6eab93">가맹점 계정 정보 등록</h2>
@@ -567,36 +583,6 @@
 <td style="text-align: center">string</td>
 </tr>
 <tr>
-<td style="text-align: left"><code class="prettyprint">licence_number</code></td>
-<td></td>
-<td>사업자 등록 번호</td>
-<td style="text-align: center">int</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">licence_img</code></td>
-<td></td>
-<td>사업자 등록증 이미지</td>
-<td style="text-align: center">object</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td><code class="prettyprint">file</code></td>
-<td>사업자 등록증 이미지 파일</td>
-<td style="text-align: center">file</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td><code class="prettyprint">url</code></td>
-<td>사업자 등록증 이미지 url</td>
-<td style="text-align: center">sting</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">type</code></td>
-<td></td>
-<td>업종/업태</td>
-<td style="text-align: center">string</td>
-</tr>
-<tr>
 <td style="text-align: left"><code class="prettyprint">brand_category</code></td>
 <td></td>
 <td>가맹점 유형</td>
@@ -612,6 +598,12 @@
 <td style="text-align: left"></td>
 <td><code class="prettyprint">option</code></td>
 <td>가맹점 카테고리 옵션 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">brand_type</code></td>
+<td></td>
+<td></td>
 <td style="text-align: center">int</td>
 </tr>
 </tbody></table>
@@ -659,7 +651,7 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/brand/info/contract_no={contract_no}</code></li>
+<li><code class="prettyprint">/api/admin/brand/contract/contract_no={contract_no}</code></li>
 </ul>
 
 <h3 id="request-query-param">Request Query Param</h3>
@@ -690,6 +682,36 @@
 <th style="text-align: center">Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">licence_number</code></td>
+<td></td>
+<td>사업자 등록 번호</td>
+<td style="text-align: center">int</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">licence_img</code></td>
+<td></td>
+<td>사업자 등록증 이미지</td>
+<td style="text-align: center">object</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">file</code></td>
+<td>사업자 등록증 이미지 파일</td>
+<td style="text-align: center">string</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td><code class="prettyprint">url</code></td>
+<td>사업자 등록증 이미지 url</td>
+<td style="text-align: center">sting</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">type</code></td>
+<td></td>
+<td>업종/업태</td>
+<td style="text-align: center">string</td>
+</tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">state</code></td>
 <td></td>
@@ -742,7 +764,7 @@
 <td style="text-align: left"></td>
 <td><code class="prettyprint">file</code></td>
 <td>사업자 등록증 이미지 파일</td>
-<td style="text-align: center">file</td>
+<td style="text-align: center">string</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
@@ -754,13 +776,13 @@
 <td style="text-align: left"><code class="prettyprint">manager_no</code></td>
 <td></td>
 <td>담당자</td>
-<td style="text-align: center">string</td>
+<td style="text-align: center">int</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">contractor_no</code></td>
 <td></td>
 <td>계약자</td>
-<td style="text-align: center">string</td>
+<td style="text-align: center">int</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">charge</code></td>
@@ -784,7 +806,7 @@
 <td style="text-align: left"></td>
 <td><code class="prettyprint">file</code></td>
 <td>사업자 등록증 이미지 파일</td>
-<td style="text-align: center">file</td>
+<td style="text-align: center">string</td>
 </tr>
 <tr>
 <td style="text-align: left"></td>
@@ -1746,8 +1768,6 @@
 <td style="text-align: center">int</td>
 </tr>
 </tbody></table>
-
-          <p><img src="https://8days.github.io/slate/images/brand/brand_regist.png" alt="brandRegist" /></p>
 
           <h1 id="errors">Errors</h1>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
