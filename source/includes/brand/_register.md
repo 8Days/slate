@@ -172,7 +172,7 @@
 | `licence_img` |  | 사업자 등록증 이미지 | object |
 |  | `file` | 사업자 등록증 이미지 파일 | file |
 |  | `url` | 사업자 등록증 이미지 url | sting |
-| `type` |  | 업종/업태 | bool |
+| `type` |  | 업종/업태 | string |
 | `brand_category` |  | 가맹점 유형 | object |
 |  | `no` | 가맹점 카테고리 번호 | int |
 |  | `option` | 가맹점 카테고리 옵션 번호 | int |
