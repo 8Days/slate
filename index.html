@@ -233,7 +233,7 @@
 
           <h1 id="part-4a468586e25a8ea8">가맹점 등록 / 관리</h1>
 
-<h2 id="diagram">가맹점 등록 diagram</h2>
+<h2 id="diagram">가맹점 등록 DIAGRAM</h2>
 
 <p><img src="https://8days.github.io/slate/images/brand/brand_regist.png" alt="brandRegist" /></p>
 
@@ -367,7 +367,7 @@
 <td style="text-align: left"><code class="prettyprint">state</code></td>
 <td></td>
 <td>계약완료 여부</td>
-<td style="text-align: center">string</td>
+<td style="text-align: center">int</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">is_open</code></td>
@@ -523,7 +523,7 @@
 <h2 id="part-25d9b69b1de4e631">가맹점 정보 등록</h2>
 
 <blockquote>
-<p>**/api/admin/brand/info/contract_no={contract_no}</p>
+<p>**/api/admin/brand/info</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -545,26 +545,8 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/brand/info/contract_no={contract_no}</code></li>
+<li><code class="prettyprint">/api/admin/brand/info</code></li>
 </ul>
-
-<h3 id="request-url-param">Request url Param</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th>Value</th>
-<th>Description</th>
-<th style="text-align: center">Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code class="prettyprint">contract_no</code></td>
-<td></td>
-<td>계약 번호</td>
-<td style="text-align: center">int</td>
-</tr>
-</tbody></table>
 
 <h3 id="request-body">Request body</h3>
 
@@ -606,6 +588,12 @@
 <td></td>
 <td style="text-align: center">int</td>
 </tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">contract_no</code></td>
+<td></td>
+<td>계약 번호</td>
+<td style="text-align: center">int</td>
+</tr>
 </tbody></table>
 
 <h3 id="response">Response</h3>
@@ -629,7 +617,7 @@
 <h2 id="part-8f273189953522cf">계약 정보 등록</h2>
 
 <blockquote>
-<p>**/api/admin/brand/contract/contract_no={contract_no}</p>
+<p>**/api/admin/brand/contract</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -651,26 +639,8 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/brand/contract/contract_no={contract_no}</code></li>
+<li><code class="prettyprint">/api/admin/brand/contract</code></li>
 </ul>
-
-<h3 id="request-query-param">Request Query Param</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th>Value</th>
-<th>Description</th>
-<th style="text-align: center">Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code class="prettyprint">contract_no</code></td>
-<td></td>
-<td>계약 번호</td>
-<td style="text-align: center">int</td>
-</tr>
-</tbody></table>
 
 <h3 id="request-body">Request body</h3>
 
@@ -716,7 +686,7 @@
 <td style="text-align: left"><code class="prettyprint">state</code></td>
 <td></td>
 <td>계약 상태</td>
-<td style="text-align: center">bool</td>
+<td style="text-align: center">int</td>
 </tr>
 <tr>
 <td style="text-align: left"><code class="prettyprint">contract_start</code></td>
@@ -813,6 +783,12 @@
 <td><code class="prettyprint">url</code></td>
 <td>사업자 등록증 이미지 url</td>
 <td style="text-align: center">sting</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">contract_no</code></td>
+<td></td>
+<td>계약 번호</td>
+<td style="text-align: center">int</td>
 </tr>
 </tbody></table>
 
@@ -1057,10 +1033,10 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/{shop_no}/info/check</code></li>
+<li><code class="prettyprint">/api/admin/goods/info/check/shop_no={shop_no}</code></li>
 </ul>
 
-<h3 id="request-url-param">Request url Param</h3>
+<h3 id="request-query-param">Request Query Param</h3>
 
 <table><thead>
 <tr>
@@ -1141,17 +1117,13 @@
 <h2 id="part-bde1caf5f90fd515">매장 정보 등록</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/{shop_no}/info</strong></p>
+<p><strong>/api/admin/goods/info</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"is_goods_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"brand_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-      </span><span class="p">},</span><span class="w">
       </span><span class="s2">"shop_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -1168,10 +1140,10 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/{shop_no}/info</code></li>
+<li><code class="prettyprint">/api/admin/goods/info</code></li>
 </ul>
 
-<h3 id="request-url-param">Request url Param</h3>
+<h3 id="request-body">Request body</h3>
 
 <table><thead>
 <tr>
@@ -1187,18 +1159,6 @@
 <td>가맹점 번호</td>
 <td style="text-align: center">int</td>
 </tr>
-</tbody></table>
-
-<h3 id="request-body">Request body</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th>Value</th>
-<th>Description</th>
-<th style="text-align: center">Type</th>
-</tr>
-</thead><tbody>
 <tr>
 <td style="text-align: left"><code class="prettyprint">title</code></td>
 <td></td>
@@ -1290,24 +1250,6 @@
 <td style="text-align: center">bool</td>
 </tr>
 <tr>
-<td style="text-align: left"><code class="prettyprint">brand_category</code></td>
-<td></td>
-<td>가맹점 유형</td>
-<td style="text-align: center">object</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td><code class="prettyprint">no</code></td>
-<td>가맹점 카테고리 번호</td>
-<td style="text-align: center">int</td>
-</tr>
-<tr>
-<td style="text-align: left"></td>
-<td><code class="prettyprint">option</code></td>
-<td>가맹점 카테고리 옵션 번호</td>
-<td style="text-align: center">int</td>
-</tr>
-<tr>
 <td style="text-align: left"><code class="prettyprint">shop_no</code></td>
 <td></td>
 <td>가맹점 번호</td>
@@ -1318,7 +1260,7 @@
 <h2 id="part-112f28a0e503e3d0">매장 부가 정보 등록</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/{shop_no}/additional</strong></p>
+<p><strong>/api/admin/goods/additional</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1377,10 +1319,10 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/{shop_no}/additional</code></li>
+<li><code class="prettyprint">/api/admin/goods/additional</code></li>
 </ul>
 
-<h3 id="request-url-param">Request url Param</h3>
+<h3 id="request-body">Request body</h3>
 
 <table><thead>
 <tr>
@@ -1396,18 +1338,6 @@
 <td>가맹점 번호</td>
 <td style="text-align: center">int</td>
 </tr>
-</tbody></table>
-
-<h3 id="request-body">Request body</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th>Value</th>
-<th>Description</th>
-<th style="text-align: center">Type</th>
-</tr>
-</thead><tbody>
 <tr>
 <td style="text-align: left"><code class="prettyprint">companies</code></td>
 <td></td>
@@ -1451,41 +1381,17 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code class="prettyprint">companies</code></td>
+<td style="text-align: left"><code class="prettyprint">shop_no</code></td>
 <td></td>
-<td>노출 기업</td>
-<td style="text-align: center">object</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">run_time</code></td>
-<td></td>
-<td>영업시간</td>
-<td style="text-align: center">object</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">day_off</code></td>
-<td></td>
-<td>휴무일 정보</td>
-<td style="text-align: center">string</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">options</code></td>
-<td></td>
-<td>부가 정보</td>
-<td style="text-align: center">object</td>
-</tr>
-<tr>
-<td style="text-align: left"><code class="prettyprint">info</code></td>
-<td></td>
-<td>한줄 소개</td>
-<td style="text-align: center">string</td>
+<td>가맹점 번호</td>
+<td style="text-align: center">int</td>
 </tr>
 </tbody></table>
 
 <h2 id="part-7fc1c5d93a041ee0">가맹점 이미지 등록</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/{shop_no}/image</strong></p>
+<p><strong>/api/admin/goods/image</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1515,10 +1421,10 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/{shop_no}/image</code></li>
+<li><code class="prettyprint">/api/admin/goods/image</code></li>
 </ul>
 
-<h3 id="request-url-param">Request url Param</h3>
+<h3 id="request-body">Request body</h3>
 
 <table><thead>
 <tr>
@@ -1534,18 +1440,6 @@
 <td>가맹점 번호</td>
 <td style="text-align: center">int</td>
 </tr>
-</tbody></table>
-
-<h3 id="request-body">Request body</h3>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th>Value</th>
-<th>Description</th>
-<th style="text-align: center">Type</th>
-</tr>
-</thead><tbody>
 <tr>
 <td style="text-align: left"><code class="prettyprint">images</code></td>
 <td></td>
@@ -1611,7 +1505,7 @@
 <h2 id="part-a1ee78e531bb4d02">상품 리스트</h2>
 
 <blockquote>
-<p><strong>/api/admin/goods/{shop_no}/list</strong></p>
+<p><strong>/api/admin/goods/list/shop_no={shop_no}</strong></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1652,7 +1546,7 @@
 <h3 id="url-schema">URL Schema</h3>
 
 <ul>
-<li><code class="prettyprint">/api/admin/goods/category/{shop_no}/list?category_no={category_no}</code></li>
+<li><code class="prettyprint">/api/admin/goods/list/shop_no={shop_no}</code></li>
 </ul>
 
 <h3 id="request-url-param">Request url Param</h3>
